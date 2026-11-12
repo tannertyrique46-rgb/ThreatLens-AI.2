@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ThreatLens AI — an explainable cybersecurity threat and phishing analysis dashboard.">
+  <title>ThreatLens AI | Cybersecurity Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">T</div>
+        <div>
+          <h2>ThreatLens <span>AI</span></h2>
+          <small>THREAT INTELLIGENCE</small>
+        </div>
+      </div>
+
+      <p class="nav-label">WORKSPACE</p>
+      <nav>
+        <a class="nav-link active" href="#dashboard">▦ Dashboard</a>
+        <a class="nav-link" href="#analyzer">⌕ Threat Analyzer</a>
+        <a class="nav-link" href="#history">◷ Scan History</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <span>Local analysis engine active</span>
+        <small>Educational prototype · v1.0</small>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CYBERSECURITY INTELLIGENCE PLATFORM</p>
+          <h1>Threat Analysis Dashboard</h1>
+          <p class="subtitle">Investigate suspicious URLs and messages with explainable risk scoring.</p>
+        </div>
+        <div class="top-status"><span></span> SYSTEM ONLINE</div>
+      </header>
+
+      <section class="metrics">
+        <article class="metric-card">
+          <p>SCANS COMPLETED</p>
+          <h2 id="scanCount">0</h2>
+          <small>On this device</small>
+        </article>
+        <article class="metric-card">
+          <p>THREATS FLAGGED</p>
+          <h2 id="threatCount">0</h2>
+          <small>High-risk results</small>
+        </article>
+        <article class="metric-card">
+          <p>ENGINE STATUS</p>
+          <h2 class="engine-status">ACTIVE</h2>
+          <small>Heuristic analysis</small>
+        </article>
+      </section>
+
+      <section class="workspace" id="analyzer">
+        <div class="panel analyzer-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">INVESTIGATION TOOL</p>
+              <h2>Analyze a potential threat</h2>
+            </div>
+            <span class="live-tag">● READY</span>
+          </div>
+
+          <div class="input-tabs">
+            <button class="tab active" data-mode="url">URL ANALYSIS</button>
+            <button class="tab" data-mode="message">MESSAGE ANALYSIS</button>
+          </div>
+
+          <label for="threatInput" id="inputLabel">Suspicious URL</label>
+          <textarea id="threatInput" placeholder="https://example.com/login" rows="5"></textarea>
+          <div class="input-hint" id="inputHint">Paste a URL you want to inspect. Do not visit suspicious links.</div>
+
+          <div class="action-row">
+            <button class="primary-button" id="analyzeBtn">⌕ Analyze Threat</button>
+            <button class="secondary-button" id="clearBtn">Clear</button>
+          </div>
+
+          <div class="result-panel" id="resultPanel" hidden aria-live="polite">
+            <div class="result-heading">
+              <div>
+                <p class="eyebrow">ANALYSIS RESULT</p>
+                <h2 id="resultTitle">Analysis complete</h2>
+              </div>
+              <div class="risk-score" id="riskScore">0<span>/100</span></div>
+            </div>
+            <div class="risk-track"><div id="riskBar"></div></div>
+            <p id="riskDescription"></p>
+            <h3>Detected indicators</h3>
+            <ul id="indicatorList"></ul>
+            <div class="recommendation" id="recommendation"></div>
+            <button class="secondary-button" id="exportBtn">Export Report</button>
+          </div>
+        </div>
+
+        <aside class="panel info-panel">
+          <p class="eyebrow">INTELLIGENCE GUIDE</p>
+          <h2>What we look for</h2>
+          <div class="guide-item">
+            <span>01</span>
+            <div><h3>Suspicious URLs</h3><p>Unusual domains, misleading words, IP addresses and risky URL patterns.</p></div>
+          </div>
+          <div class="guide-item">
+            <span>02</span>
+            <div><h3>Social engineering</h3><p>Urgency, threats, impersonation and requests for sensitive information.</p></div>
+          </div>
+          <div class="guide-item">
+            <span>03</span>
+            <div><h3>Explainable results</h3><p>Risk scores are accompanied by indicators that explain the assessment.</p></div>
+          </div>
+          <div class="notice">
+            <strong>Research disclaimer</strong>
+            <p>This prototype uses local heuristic checks. It does not query live threat-intelligence databases or guarantee that a link is safe.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel history-panel" id="history">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">RECENT ACTIVITY</p>
+            <h2>Scan History</h2>
+          </div>
+          <button class="secondary-button" id="clearHistoryBtn">Clear history</button>
+        </div>
+        <div class="history-list" id="historyList">
+          <p class="empty-state">No scans yet. Run your first analysis above.</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>THREATLENS AI · BUILT FOR ICEHACKS 2026</span>
+        <span>Educational cybersecurity prototype</span>
+      </footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
